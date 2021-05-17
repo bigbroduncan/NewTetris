@@ -108,6 +108,10 @@
 
     }
 
+    public void decreaseCurrentPieceFallTick(int points) {
+            this.tmrCurrentPieceFall.Interval = this.tmrCurrentPieceFall.Interval - points;
+        }
+
     #endregion
     private System.Windows.Forms.Label lblPlayingField;
     private System.Windows.Forms.Label label2;

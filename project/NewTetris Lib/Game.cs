@@ -19,9 +19,9 @@ namespace NewTetris_Lib {
     private bool isPlaying;
 
     /// <summary>
-    /// Current player score - currently unused
+    /// Current player score - changed to be used for speed increase - will change later
     /// </summary>
-    private int score;
+    public int score;
 
     /// <summary>
     /// Random object used to randomly select next shape
