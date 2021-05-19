@@ -138,6 +138,11 @@ namespace NewTetris_Lib {
     public static Image emptyPieceTest;
 
     /// <summary>
+    /// Image for when you lose
+    /// </summary>
+    public static Image lostMsg;
+
+    /// <summary>
     /// Default constructor initializing random field and setting
     /// curShape to null
     /// </summary>

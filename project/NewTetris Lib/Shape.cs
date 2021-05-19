@@ -1,4 +1,6 @@
-﻿namespace NewTetris_Lib {
+﻿using System.Windows.Forms;
+
+namespace NewTetris_Lib {
   /// <summary>
   /// Used to store a Tetris shape
   /// </summary>
@@ -18,6 +20,11 @@
     /// Current orientation
     /// </summary>
     private int orientationIndex;
+
+    /// <summary>
+    /// Lost message picture
+    /// </summary>
+    public PictureBox lostMsg;
 
     /// <summary>
     /// Default constructor
@@ -185,6 +192,17 @@
         piece.DissolveIntoField();
       }
       PlayingField.GetInstance().CheckClearAllRows();
+      if (PlayingField.GetInstance().field[1,2] == 1)
+      {
+        lostMsg = new PictureBox();
+        lostMsg.BackgroundImage = Game.lostMsg;
+        lostMsg.BackgroundImageLayout = ImageLayout.Stretch;
+        lostMsg.Size = new System.Drawing.Size(450, 292);
+        Game.field.Controls.Add(lostMsg);
+        lostMsg.Top = 225;
+        lostMsg.Left = 0;
+        lostMsg.BringToFront();
+      }
     }
 
     /// <summary>

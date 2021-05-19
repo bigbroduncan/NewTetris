@@ -41,6 +41,7 @@ namespace NewTetris {
       Game.imgPiece[4] = Resources.l;
       Game.imgPiece[5] = Resources.p;
       Game.imgPiece[6] = Resources.r;
+      Game.lostMsg = Resources.lost;
       game.NextShape();
     }
 
