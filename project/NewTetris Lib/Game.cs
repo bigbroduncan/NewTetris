@@ -49,6 +49,7 @@ namespace NewTetris_Lib {
 
 
     public static Image emptyPiece; /// added
+    public static Image emptyPieceTest; /// added
 
     /// <summary>
     /// Default constructor initializing random field and setting

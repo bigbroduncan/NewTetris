@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace NewTetris_Lib {
   /// <summary>
@@ -33,6 +34,7 @@ namespace NewTetris_Lib {
       Game.field.Controls.Add(pic);
       pic.BringToFront();
       UpdateImgPos();
+      //Image a = Game.imgPiece;
     }
     
     /// <summary>
@@ -93,7 +95,19 @@ namespace NewTetris_Lib {
       int r = pos.y / SIZE;
       int c = pos.x / SIZE;
       PlayingField.GetInstance().field[r, c] = 1;
-      //PlayingField.GetInstance().CheckClearAllRows();
+            
+      PlayingField.GetInstance().pBox[r, c].BackgroundImage = Game.imgPiece;
+      //PlayingField.GetInstance().pBox[r, c].BackgroundImageLayout = ImageLayout.Stretch;
+      //PlayingField.GetInstance().pBox[r, c].Size = new System.Drawing.Size(SIZE, SIZE);
+      //Game.field.Controls.Add(PlayingField.GetInstance().pBox[r, c]);
+      PlayingField.GetInstance().pBox[r, c].BringToFront();
+      PlayingField.GetInstance().pBox[r, c].Left = pos.x;
+      PlayingField.GetInstance().pBox[r, c].Top = pos.y;
+
+      pic.BackgroundImage = null;
+      pic.SendToBack();
+      pic = null;
+            
     }
 
     /// <summary>

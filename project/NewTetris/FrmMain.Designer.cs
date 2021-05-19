@@ -24,7 +24,7 @@
     /// </summary>
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.lblPlayingField = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.label2 = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -33,17 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblPlayingField = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblPlayingField
-            // 
-            this.lblPlayingField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblPlayingField.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPlayingField.Location = new System.Drawing.Point(397, 89);
-            this.lblPlayingField.Name = "lblPlayingField";
-            this.lblPlayingField.Size = new System.Drawing.Size(450, 660);
-            this.lblPlayingField.TabIndex = 7;
-            this.lblPlayingField.Click += new System.EventHandler(this.lblPlayingField_Click);
             // 
             // label2
             // 
@@ -121,14 +112,25 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Terminator Two", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(448, 29);
+            this.label5.Location = new System.Drawing.Point(515, 33);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(352, 32);
+            this.label5.Size = new System.Drawing.Size(234, 32);
             this.label5.TabIndex = 16;
-            this.label5.Text = "Blocks on a Screen (The Game)\r\n\r\n\r\n";
+            this.label5.Text = "Almost Tetris";
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // lblPlayingField
+            // 
+            this.lblPlayingField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblPlayingField.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPlayingField.Image = ((System.Drawing.Image)(resources.GetObject("lblPlayingField.Image")));
+            this.lblPlayingField.Location = new System.Drawing.Point(397, 89);
+            this.lblPlayingField.Name = "lblPlayingField";
+            this.lblPlayingField.Size = new System.Drawing.Size(450, 660);
+            this.lblPlayingField.TabIndex = 7;
+            this.lblPlayingField.Click += new System.EventHandler(this.lblPlayingField_Click);
             // 
             // FrmMain
             // 

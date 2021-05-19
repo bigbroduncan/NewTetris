@@ -18,6 +18,7 @@ namespace NewTetris {
       InitializeComponent();
       Game.imgPiece = Resources.block_piece;
       Game.emptyPiece = Resources.empty_space; ///// added
+      Game.emptyPieceTest = Resources.empty_space_test; ///// added
       game = new Game();
       Game.field = lblPlayingField;
       Game.score = label4;
@@ -49,6 +50,9 @@ namespace NewTetris {
       }
       else if (e.KeyCode == Keys.X) {
         Game.curShape.RotateCW();
+      }
+      else if (e.KeyCode == Keys.Q) { 
+        Environment.Exit(0);
       }
     }
 
