@@ -19,9 +19,9 @@ namespace NewTetris_Lib {
     private bool isPlaying;
 
     /// <summary>
-    /// Current player score - changed to be used for speed increase - will change later
+    /// Current player score - currently unused
     /// </summary>
-    public int score;
+    public static Control score;
 
     /// <summary>
     /// Random object used to randomly select next shape
@@ -47,6 +47,9 @@ namespace NewTetris_Lib {
     /// </summary>
     public static Image imgPiece;
 
+
+    public static Image emptyPiece; /// added
+
     /// <summary>
     /// Default constructor initializing random field and setting
     /// curShape to null
@@ -60,8 +63,11 @@ namespace NewTetris_Lib {
     /// Generates the next shape to be put into the playing field
     /// </summary>
     public void NextShape() {
-      int shapeNum = random.Next(7);
+      /*int shapeNum = random.Next(7);
       ShapeType shapeType = (ShapeType)shapeNum;
+      curShape = ShapeFactory.MakeShape(shapeType);
+      */
+      ShapeType shapeType = (ShapeType)0;
       curShape = ShapeFactory.MakeShape(shapeType);
     }
   }

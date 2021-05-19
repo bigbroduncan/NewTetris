@@ -31,6 +31,7 @@ namespace NewTetris_Lib {
       pic.BackgroundImageLayout = ImageLayout.Stretch;
       pic.Size = new System.Drawing.Size(SIZE, SIZE);
       Game.field.Controls.Add(pic);
+      pic.BringToFront();
       UpdateImgPos();
     }
     
@@ -92,6 +93,7 @@ namespace NewTetris_Lib {
       int r = pos.y / SIZE;
       int c = pos.x / SIZE;
       PlayingField.GetInstance().field[r, c] = 1;
+      //PlayingField.GetInstance().CheckClearAllRows();
     }
 
     /// <summary>

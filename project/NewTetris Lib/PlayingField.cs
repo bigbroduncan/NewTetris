@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace NewTetris_Lib {
   /// <summary>
@@ -17,6 +19,11 @@ namespace NewTetris_Lib {
     /// Grid holding 1 for occupied, 0 for vacant
     /// </summary>
     public int[,] field;
+
+    public PictureBox pic;
+    public PictureBox pic2;
+
+    public int score = 0;
 
     /// <summary>
     /// Observer pattern event for when a row is 
@@ -56,13 +63,132 @@ namespace NewTetris_Lib {
       return field[r, c] == 0;
     }
 
+    public void MakeFreeSpace(int xSize, int ySize, int xPos, int yPos) { 
+        pic = new PictureBox();
+        pic.BackgroundImage = Game.emptyPiece;
+        pic.BackgroundImageLayout = ImageLayout.Stretch;
+        pic.Size = new System.Drawing.Size(xSize, ySize);
+        Game.field.Controls.Add(pic);
+        if (xPos == 21)
+        {
+            pic.Top = (20 * 30) + 29;
+            pic.Left = yPos * 30;
+        }
+        else
+        {
+            pic.Top = xPos * 30;
+            pic.Left = yPos * 30;
+        }
+        pic.BringToFront();
+    }
+        
+    public void MakeFilledSpace(int xSize, int ySize, int xPos, int yPos) { 
+        pic2 = new PictureBox();
+        pic2.BackgroundImage = Game.imgPiece;
+        pic2.BackgroundImageLayout = ImageLayout.Stretch;
+        pic2.Size = new System.Drawing.Size(xSize, ySize);
+        Game.field.Controls.Add(pic2);
+        if (xPos == 21)
+        {
+            pic2.Top = (20 * 30) + 29;
+            pic2.Left = yPos * 30;
+        }
+        else
+        {
+            pic2.Top = xPos * 30;
+            pic2.Left = yPos * 30;
+        }
+        pic2.BringToFront();
+    }
+
+    public void IncreaseScore(int rowsCleared) { 
+        if (rowsCleared == 2)
+            score += 2000 * rowsCleared;
+        else if (rowsCleared == 3)
+            score += 3000 * rowsCleared;
+        else if (rowsCleared == 4)
+            score += 4000 * rowsCleared;
+        else
+            score += 1000 * rowsCleared;
+        Game.score.Text = score.ToString();
+    }
+
     /// <summary>
     /// Checks each row to see if any of them are filled and
     /// needs to be cleared, then clears those rows - currently
     /// unused and not implemented
     /// </summary>
-    public void CheckClearAllRows() {
+    public void CheckClearAllRows()
+    {
+        int row;
+        int col;
+        int tetrisCount = 0;
+        bool fullRow = true;
+        int[] emptyRows = new int[22];
+        //txt = "I control this box";
 
+        //sBox = new Label();
+        //Game.field.Controls.Add(sBox);
+        //sBox.ForeColor = Color.Red;
+        //Game.score.Text = txt;
+
+
+        for (int a = 0; a < emptyRows.Length; a++)
+            emptyRows[a] = 0;
+
+        for (row = 0; row < 22; row++)
+        {
+            for (col = 0; col < 15; col++)
+            {
+                if (field[row, col] == 0)
+                {
+                    fullRow = false;
+                    break;
+                }
+            }
+
+            if (fullRow == true)
+            {
+                emptyRows[row] = 1;
+                tetrisCount++;
+                //Console.WriteLine("A full row has been detected!");
+            }
+            fullRow = true;
+        }
+
+        for (int b = 0; b < emptyRows.Length; b++)
+        {
+            if (emptyRows[b] == 1)
+            {
+                for (col = 0; col < 15; col++)
+                {
+                    for (int p = b; p > 0; p--)
+                    {
+                        if (field[p - 1, col] == 1 && field[p, col] != 1)
+                        {
+                            field[p, col] = 1;
+                            if (p == 21)
+                                MakeFilledSpace(30, 29, p, col);
+                            else
+                                MakeFilledSpace(30, 30, p, col);
+                        }
+                        else if (field[p - 1, col] == 0 && field[p, col] != 0) 
+                        {
+                            field[p, col] = 0;
+                            if (p == 21)
+                                MakeFreeSpace(30, 29, p, col);
+                            else
+                                MakeFreeSpace(30, 30, p, col);
+                        }
+                        field[0, col] = 0;
+                        MakeFreeSpace(30, 30, 0, col);
+                    }
+                        
+                }
+            }
+        }
+        score += 1000 * tetrisCount * tetrisCount;
+        Game.score.Text = score.ToString();
     }
   }
 }

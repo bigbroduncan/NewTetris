@@ -176,6 +176,7 @@
       foreach (Piece piece in pieces) {
         piece.DissolveIntoField();
       }
+      PlayingField.GetInstance().CheckClearAllRows();
     }
   }
 }
