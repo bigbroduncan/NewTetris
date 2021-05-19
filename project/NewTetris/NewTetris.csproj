@@ -104,5 +104,74 @@
   <ItemGroup>
     <None Include="Resources\empty_space1.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\L_shape.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_shape.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RZ_shape.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square_shape.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T_shape.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Z_shape.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T_shape1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square_shape1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RZ_shape1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_shape1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\L_shape1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empty_space2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\block_piece3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

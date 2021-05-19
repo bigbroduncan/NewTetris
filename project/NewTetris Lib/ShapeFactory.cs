@@ -10,6 +10,7 @@
     /// <returns>Shape object</returns>
     public static Shape MakeShape(ShapeType type) {
       Orientation[] orientations = null;
+      int color = 0;
       switch (type) {
         case ShapeType.LINE:
           orientations = new Orientation[] {
@@ -24,6 +25,7 @@
               {0,0,0,0},
               {0,0,0,0}}),
           };
+          color = 0;
           break;
         case ShapeType.SQUARE:
           orientations = new Orientation[] {
@@ -33,6 +35,7 @@
               {0,1,1,0},
               {0,0,0,0}})
           };
+          color = 1;
           break;
         case ShapeType.LBLOCK:
           orientations = new Orientation[] {
@@ -57,6 +60,7 @@
               {0,0,1,0},
               {0,0,0,0}}),
           };
+          color = 2;
           break;
         case ShapeType.RBLOCK:
           orientations = new Orientation[] {
@@ -81,6 +85,7 @@
               {0,0,1,0},
               {0,1,1,0}}),
           };
+          color = 3;
           break;
         case ShapeType.ZBLOCK:
           orientations = new Orientation[] {
@@ -95,6 +100,7 @@
               {0,1,1,0},
               {0,1,0,0}}),
           };
+          color = 4;
           break;
         case ShapeType.TBLOCK:
           orientations = new Orientation[] {
@@ -119,6 +125,7 @@
               {0,1,0,0},
               {0,0,0,0}}),
           };
+          color = 5;
           break;
         case ShapeType.REV_ZBLOCK:
           orientations = new Orientation[] {
@@ -133,9 +140,10 @@
               {0,1,1,0},
               {0,0,1,0}}),
           };
+          color = 6;
           break;
       }
-      Shape shape = new Shape(orientations);
+      Shape shape = new Shape(orientations, color);
       return shape;
     }
 

@@ -19,22 +19,27 @@ namespace NewTetris_Lib {
     /// <summary>
     /// Control used to hold the image of the piece so GUI can display it
     /// </summary>
-    private PictureBox pic;
+    public PictureBox pic;
+
+    /// <summary>
+    /// Index of the color in the color array
+    /// </summary>
+    public int pieceColor;
 
     /// <summary>
     /// typical explicit constructor
     /// </summary>
     /// <param name="pos">This gives the position of the piece</param>
-    public Piece(Position pos) {
+    public Piece(Position pos, int color) {
+      pieceColor = color;
       this.pos = pos;
       pic = new PictureBox();
-      pic.BackgroundImage = Game.imgPiece;
+      pic.BackgroundImage = Game.imgPiece[color];
       pic.BackgroundImageLayout = ImageLayout.Stretch;
       pic.Size = new System.Drawing.Size(SIZE, SIZE);
       Game.field.Controls.Add(pic);
       pic.BringToFront();
       UpdateImgPos();
-      //Image a = Game.imgPiece;
     }
     
     /// <summary>
@@ -89,17 +94,15 @@ namespace NewTetris_Lib {
 
     /// <summary>
     /// Puts this piece into the playing field. This takes the current position of the piece
-    /// and puts a 1 in the playing field at that location, signify it is now occupied
+    /// and puts a 1 in the playing field at that location, signify it is now occupied, 
+    /// and also places the piece's image in the picturebox at that position
     /// </summary>
     public void DissolveIntoField() {
       int r = pos.y / SIZE;
       int c = pos.x / SIZE;
       PlayingField.GetInstance().field[r, c] = 1;
             
-      PlayingField.GetInstance().pBox[r, c].BackgroundImage = Game.imgPiece;
-      //PlayingField.GetInstance().pBox[r, c].BackgroundImageLayout = ImageLayout.Stretch;
-      //PlayingField.GetInstance().pBox[r, c].Size = new System.Drawing.Size(SIZE, SIZE);
-      //Game.field.Controls.Add(PlayingField.GetInstance().pBox[r, c]);
+      PlayingField.GetInstance().pBox[r, c].BackgroundImage = Game.imgPiece[pieceColor];
       PlayingField.GetInstance().pBox[r, c].BringToFront();
       PlayingField.GetInstance().pBox[r, c].Left = pos.x;
       PlayingField.GetInstance().pBox[r, c].Top = pos.y;

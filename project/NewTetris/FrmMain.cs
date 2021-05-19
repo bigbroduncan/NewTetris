@@ -13,15 +13,34 @@ using System.Windows.Forms;
 namespace NewTetris {
   public partial class FrmMain : Form {
     public Game game;
+    private bool d_was_pressed = false;
+    private int defSpeed;
 
     public FrmMain() {
       InitializeComponent();
-      Game.imgPiece = Resources.block_piece;
-      Game.emptyPiece = Resources.empty_space; ///// added
-      Game.emptyPieceTest = Resources.empty_space_test; ///// added
+      Game.emptyPiece = Resources.empty_space;
+      Game.emptyPieceTest = Resources.empty_space_test;
+      Game.imgPiece2 = Resources.block_piece2;
       game = new Game();
       Game.field = lblPlayingField;
+      Game.storage = pictureBox1;
+      Game.next = pictureBox3;
+      Game.imgLine = Resources.line_shape;
+      Game.imgSquare = Resources.square_shape;
+      Game.imgL = Resources.L_shape;
+      Game.imgR = Resources.R_shape;
+      Game.imgZ = Resources.Z_shape;
+      Game.imgT = Resources.T_shape;
+      Game.imgRZ = Resources.RZ_shape;
+      Game.level = lblLevel;
       Game.score = label4;
+      Game.imgPiece[0] = Resources.c;
+      Game.imgPiece[1] = Resources.y;
+      Game.imgPiece[2] = Resources.o;
+      Game.imgPiece[3] = Resources.b;
+      Game.imgPiece[4] = Resources.l;
+      Game.imgPiece[5] = Resources.p;
+      Game.imgPiece[6] = Resources.r;
       game.NextShape();
     }
 
@@ -36,14 +55,20 @@ namespace NewTetris {
     }
 
     private void FrmMain_KeyUp(object sender, KeyEventArgs e) {
-      if (e.KeyCode == Keys.Left) {
+      if ((d_was_pressed) && (e.KeyCode != Keys.Down)) // ret speed to norm releasing down
+        {
+            d_was_pressed = false;
+            this.tmrCurrentPieceFall.Interval = defSpeed;
+        }
+      else if (e.KeyCode == Keys.Left) {
         Game.curShape.TryMoveLeft();
       }
       else if (e.KeyCode == Keys.Right) {
         Game.curShape.TryMoveRight();
       }
-      else if (e.KeyCode == Keys.Down) {
-        while (Game.curShape.TryMoveDown());
+      else if (e.KeyCode == Keys.Up)
+      {
+        Game.curShape.PlaceUnder();
       }
       else if (e.KeyCode == Keys.Z) {
         Game.curShape.RotateCCW();
@@ -54,6 +79,16 @@ namespace NewTetris {
       else if (e.KeyCode == Keys.Q) { 
         Environment.Exit(0);
       }
+      else if (!(d_was_pressed) && (e.KeyCode == Keys.Down)) // inc speed pressing down
+        {
+            d_was_pressed = true;
+            defSpeed = this.tmrCurrentPieceFall.Interval;
+            this.tmrCurrentPieceFall.Interval = 100;
+        }
+      else if (e.KeyCode == Keys.Space) // store shapes
+        {
+            game.StoreShape();
+        }
     }
 
         private void label1_Click(object sender, EventArgs e)
