@@ -95,5 +95,26 @@
   <ItemGroup>
     <None Include="Resources\empty_space.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\block_piece1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\block_piece2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\block_piece3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\block_piece4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\block_piece5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\block_piece6.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

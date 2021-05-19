@@ -10,7 +10,7 @@ namespace NewTetris_Lib {
     /// <summary>
     /// Current level the player is on - currently unused
     /// </summary>
-    private int level;
+    public static Control level;
 
     /// <summary>
     /// Flag to see if player is currently playing the level
@@ -45,7 +45,7 @@ namespace NewTetris_Lib {
     /// compose a shape. This is used so the New Tetris Library
     /// can retrieve the image for a shape.
     /// </summary>
-    public static Image imgPiece;
+    public static Image[] imgPiece = new Image[7];
 
 
     public static Image emptyPiece; /// added

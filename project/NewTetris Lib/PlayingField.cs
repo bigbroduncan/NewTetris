@@ -24,6 +24,8 @@ namespace NewTetris_Lib {
     public PictureBox pic2;
 
     public int score = 0;
+    public int level = 1;
+    public int levelThreshold = 5000;
 
     /// <summary>
     /// Observer pattern event for when a row is 
@@ -188,7 +190,12 @@ namespace NewTetris_Lib {
             }
         }
         score += 1000 * tetrisCount * tetrisCount;
+        while (score >= levelThreshold){
+            level++;
+            levelThreshold += 5000;
+        }
         Game.score.Text = score.ToString();
+        Game.level.Text = level.ToString();
     }
   }
 }

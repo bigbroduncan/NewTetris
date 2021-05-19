@@ -16,11 +16,18 @@ namespace NewTetris {
 
     public FrmMain() {
       InitializeComponent();
-      Game.imgPiece = Resources.block_piece;
+      Game.imgPiece[0] = Resources.c;
+      Game.imgPiece[1] = Resources.y;
+      Game.imgPiece[2] = Resources.o;
+      Game.imgPiece[3] = Resources.b;
+      Game.imgPiece[4] = Resources.l;
+      Game.imgPiece[5] = Resources.p;
+      Game.imgPiece[6] = Resources.r;
       Game.emptyPiece = Resources.empty_space; ///// added
       game = new Game();
       Game.field = lblPlayingField;
       Game.score = label4;
+      Game.level = lblLevel;
       game.NextShape();
     }
 

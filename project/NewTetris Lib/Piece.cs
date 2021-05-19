@@ -24,10 +24,10 @@ namespace NewTetris_Lib {
     /// typical explicit constructor
     /// </summary>
     /// <param name="pos">This gives the position of the piece</param>
-    public Piece(Position pos) {
+    public Piece(Position pos, int color) {
       this.pos = pos;
       pic = new PictureBox();
-      pic.BackgroundImage = Game.imgPiece;
+      pic.BackgroundImage = Game.imgPiece[color];
       pic.BackgroundImageLayout = ImageLayout.Stretch;
       pic.Size = new System.Drawing.Size(SIZE, SIZE);
       Game.field.Controls.Add(pic);
@@ -94,6 +94,9 @@ namespace NewTetris_Lib {
       int c = pos.x / SIZE;
       PlayingField.GetInstance().field[r, c] = 1;
       //PlayingField.GetInstance().CheckClearAllRows();
+      // temp save pic 
+      // Deallocate piece and recycle
+      // Set image in location (r,c) to piece picture
     }
 
     /// <summary>
